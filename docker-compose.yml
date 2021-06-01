@@ -1,0 +1,23 @@
+version: "3.9"
+
+services: 
+  database: 
+    image: mariadb
+    ports: 
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment: 
+      - MYSQL_DATABASE=app_django
+      - MYSQL_ROOT_PASSWORD=bug123!
+      - MYSQL_USER=djangoagem
+      - MYSQL_PASSWORD=djangoagemcloud0987
+  django:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes: 
+      - .:/dj-agemcloud
+    ports:
+      - "80:8000"
+    depends_on: 
+      - database
