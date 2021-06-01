@@ -1,5 +1,5 @@
+.gitignore
 agemcloud/
 db/
 manages/
 manage.py
-.gitignore
