@@ -13,22 +13,36 @@ Build and develop simple django app with Docker
 
 `git clone https://github.com/geek-id/django-docker.git`
 
-2. Edit docker-compose.yml
+2. Edit Dockerfile
 
-Change on this line :
+On the file of Dockerfile you can change `django-app-folder` to your folder django environment. Example your django app folder on the _djangoproject_, so you can type right there _/djangoproject_
+
+3. Edit docker-compose.yml
+
+change this line :
 ```
-- MYSQL_DATABASE=app_django_name
-- MYSQL_ROOT_PASSWORD=******
-- MYSQL_USER=app_django_user
-- MYSQL_PASSWORD=******
+ environment: 
+   - MYSQL_DATABASE=app_django_name
+   - MYSQL_ROOT_PASSWORD=******
+   - MYSQL_USER=app_django_user
+   - MYSQL_PASSWORD=******
 ```
 
 to your environment you want.
 
-3. Build the docker
+and then change this line :
+
+```
+  volumes: 
+    - .:/django-app-folder
+```
+
+to your path folder django project
+
+4. Build the docker
 
 `docker-compose run django django-admin startproject example`
 
-4. Run the docker
+5. Run the docker
 
 `docker-compose up`
