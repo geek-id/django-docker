@@ -11,7 +11,7 @@ services:
       - MYSQL_DATABASE=app_django_name
       - MYSQL_ROOT_PASSWORD=******
       - MYSQL_USER=app_django_user
-      - MYSQL_PASSWORD=*****
+      - MYSQL_PASSWORD=******
   django:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
